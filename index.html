@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abdullah Al-Hadeethi</title>
+<meta name="description" content="Projects by Abdullah Al-Hadeethi, ECE student at WPI.">
+<meta property="og:title" content="Abdullah Al-Hadeethi">
+<meta property="og:description" content="ECE student at WPI. Projects in power electronics, PCBs and IC design.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%23070707'/%3E%3Cpath d='M13 3 5 14h6l-1 7 8-11h-6l1-7z' fill='%23FFD23F'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&amp;family=Barlow+Condensed:wght@600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#070707}
+a{color:#EDEDED}a:hover{color:#FFFFFF}
+.lnk{text-decoration:underline;text-decoration-color:#555;text-underline-offset:4px;transition:text-decoration-color .15s ease,color .15s ease}
+.lnk:hover{text-decoration-color:var(--ac);color:#FFFFFF}
+.tab{transition:color .15s ease,border-color .15s ease}
+.tab:hover{color:#FFFFFF}
+.tab.on{color:#FFFFFF;border-bottom-color:var(--ac)}
+.card{transition:border-color .2s ease,background-color .2s ease,transform .2s ease}
+.card:hover,.card:focus-visible{border-color:var(--ac);background-color:#111111;transform:translateY(-2px)}
+.card .sym{color:#6B6B6B;transition:color .2s ease}
+.card:hover .sym,.card:focus-visible .sym{color:#D9D9D9}
+.card .w{transition:stroke .2s ease}
+.card:hover .w,.card:focus-visible .w{stroke:var(--ac);stroke-dasharray:5 7;animation:flow .7s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-12}}
+.card .more{transition:color .2s ease}
+.card:hover .more{color:var(--ac)}
+.panel{animation:rise .25s ease-out both}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.scrim{animation:fade .2s ease both}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.iconbtn{transition:background-color .15s ease,color .15s ease}
+.iconbtn:hover{background-color:#222;color:#FFFFFF}
+.navbtn{transition:color .15s ease,border-color .15s ease}
+.navbtn:hover{color:#FFFFFF;border-color:#777}
+button:focus-visible,a:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+@media (hover: hover) and (pointer: fine){.cz,.cz *{cursor:none!important}}
+@media (prefers-reduced-motion: reduce){.card .w,.panel,.scrim{animation:none!important}.card{transition:none}}
+
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="cz" style="--ac: #FFD23F; position: relative; min-height: 100vh; background-color: #070707; background-image: radial-gradient(#1C1C1C 1px, transparent 1px); background-size: 24px 24px; color: #EDEDED; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 17px; line-height: 1.6; overflow-x: hidden">
+<canvas id="fx-bg" aria-hidden="true" style="position: fixed; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0"></canvas>
+<canvas id="fx-cursor" aria-hidden="true" style="position: fixed; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; z-index: 60"></canvas>
+
+<div style="position: relative; z-index: 1; max-width: 1080px; margin: 0 auto; padding: 0 24px">
+
+<header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 24px 0">
+<a href="#top" style="text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 0.02em">A. AL-HADEETHI</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 4px; font-size: 15px">
+<a class="navbtn" href="#projects" style="text-decoration: none; color: #A8A8A8; padding: 10px 12px; border-bottom: 1px solid transparent">Projects</a>
+<a class="navbtn" href="#about" style="text-decoration: none; color: #A8A8A8; padding: 10px 12px; border-bottom: 1px solid transparent">About</a>
+<a class="navbtn" href="#contact" style="text-decoration: none; color: #A8A8A8; padding: 10px 12px; border-bottom: 1px solid transparent">Contact</a>
+</nav>
+</header>
+
+<section id="top" style="padding: 88px 0 96px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 48px">
+<div style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<h1 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(56px, 9vw, 112px); line-height: 0.9; letter-spacing: -0.005em; text-transform: uppercase">Abdullah<br><span style="white-space: nowrap">Al-Hadeethi</span></h1>
+<div lang="ar" dir="rtl" style="align-self: flex-start; font-family: 'Amiri', serif; font-weight: 700; font-size: 30px; color: var(--ac)">عبدالله الحديثي</div>
+</div>
+<p style="margin: 0; max-width: 600px; font-size: 19px; color: #D4D4D4">I'm an electrical and computer engineering student at WPI, graduating in 2028. I've spent two internships on power electronics and PCBs, and most of my time at school on IC design, for classes and for the IC design team I helped start.</p>
+<p style="margin: 0; max-width: 600px; font-size: 19px; color: #D4D4D4">These are the projects I'm proudest of, plus a couple I'm still building.</p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 22px; font-size: 16px">
+<button type="button" class="lnk" data-copy aria-label="Copy email address amfhadeethi@gmail.com" style="min-height: 44px; padding: 0; border: 0; background: transparent; color: #EDEDED; font: inherit; cursor: pointer"><span aria-live="polite">amfhadeethi@gmail.com</span></button>
+<a class="lnk" href="https://www.linkedin.com/in/abdullah-alhadeethi" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; min-height: 44px">LinkedIn ↗</a>
+</div>
+</div>
+
+<div aria-label="Title block" style="flex: 1 1 300px; max-width: 360px; border: 1px solid #3A3A3A; background: rgba(7,7,7,0.85); font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 1.3; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr))">
+<div style="grid-column: 1 / 3; padding: 10px 12px; border-bottom: 1px solid #3A3A3A"><div style="color: var(--ac); font-size: 10px; letter-spacing: 0.08em">TITLE</div><div style="color: #EDEDED; font-size: 14px; padding-top: 3px">Project portfolio</div></div>
+<div style="padding: 10px 12px; border-bottom: 1px solid #3A3A3A; border-right: 1px solid #3A3A3A"><div style="color: var(--ac); font-size: 10px; letter-spacing: 0.08em">DRAWN BY</div><div style="color: #EDEDED; padding-top: 3px">A. Al-Hadeethi</div></div>
+<div style="padding: 10px 12px; border-bottom: 1px solid #3A3A3A"><div style="color: var(--ac); font-size: 10px; letter-spacing: 0.08em">SCHOOL</div><div style="color: #EDEDED; padding-top: 3px">WPI · ECE '28</div></div>
+<div style="padding: 10px 12px; border-right: 1px solid #3A3A3A"><div style="color: var(--ac); font-size: 10px; letter-spacing: 0.08em">REV / DATE</div><div style="color: #EDEDED; padding-top: 3px">C · 2026-10</div></div>
+<div style="padding: 10px 12px"><div style="color: var(--ac); font-size: 10px; letter-spacing: 0.08em">SHEET</div><div style="color: #EDEDED; padding-top: 3px">1 of 1</div></div>
+</div>
+</section>
+
+<section id="projects" style="padding: 24px 0 40px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; border-bottom: 1px solid #2A2A2A">
+<h2 style="margin: 0; padding-bottom: 10px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 44px; line-height: 1; text-transform: uppercase">Projects</h2>
+<div id="tabs" role="group" aria-label="Filter projects" style="display: flex; flex-wrap: wrap; gap: 4px">
+
+</div>
+</div>
+
+<div id="cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px"></div>
+</section>
+
+<section id="about" style="padding: 80px 0 32px; display: flex; flex-direction: column; gap: 24px">
+<h2 style="margin: 0; padding-bottom: 10px; border-bottom: 1px solid #2A2A2A; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 44px; line-height: 1; text-transform: uppercase">About</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 40px">
+<div style="flex: 999 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 16px; color: #D4D4D4">
+<p style="margin: 0">Right now I'm an EE intern at Mouse Specifics in Framingham, working on the boards that pick up a lab mouse's heart rate. Before that I was a hardware engineering intern at DRF Engineering Services in Natick, doing bring-up, testing and rework on power electronics.</p>
+<p style="margin: 0">At school I helped start an IC design team in WPI's IEEE SSCS chapter. We got the school to fund Cadence and a tape-out, and we're designing a SAR ADC for EEG acquisition.</p>
+<p style="margin: 0">Outside of engineering: Manchester United, playing soccer, classic Arabic music and poetry, and road trips.</p>
+</div>
+<dl style="flex: 1 1 280px; margin: 0; display: flex; flex-direction: column; font-size: 15px; border-top: 1px solid #2A2A2A">
+<div style="padding: 12px 0; border-bottom: 1px solid #2A2A2A"><dt style="font-weight: 600; color: #EDEDED">EE Intern, Mouse Specifics</dt><dd style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8F8F8F">Framingham, MA · Sept 2026 – now</dd></div>
+<div style="padding: 12px 0; border-bottom: 1px solid #2A2A2A"><dt style="font-weight: 600; color: #EDEDED">Hardware Engineering Intern, DRF Engineering Services</dt><dd style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8F8F8F">Natick, MA</dd></div>
+<div style="padding: 12px 0; border-bottom: 1px solid #2A2A2A"><dt style="font-weight: 600; color: #EDEDED">IC design team, IEEE SSCS at WPI</dt><dd style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8F8F8F">Helped start it · also Treasurer</dd></div>
+<div style="padding: 12px 0; border-bottom: 1px solid #2A2A2A"><dt style="font-weight: 600; color: #EDEDED">Secretary, MENA Club</dt><dd style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8F8F8F">WPI</dd></div>
+</dl>
+</div>
+</section>
+
+<section id="contact" style="padding: 80px 0 48px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; padding-bottom: 10px; border-bottom: 1px solid #2A2A2A; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 44px; line-height: 1; text-transform: uppercase">Contact</h2>
+<p style="margin: 0; color: #D4D4D4; max-width: 600px">I'm looking for EE internships. Email is the best way to reach me.</p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 22px; font-size: 16px">
+<button type="button" class="lnk" data-copy aria-label="Copy email address amfhadeethi@gmail.com" style="min-height: 44px; padding: 0; border: 0; background: transparent; color: #EDEDED; font: inherit; cursor: pointer"><span>amfhadeethi@gmail.com</span></button>
+<a class="lnk" href="mailto:amfhadeethi@gmail.com" style="display: inline-flex; align-items: center; min-height: 44px">Open in mail app</a>
+<a class="lnk" href="https://www.linkedin.com/in/abdullah-alhadeethi" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; min-height: 44px">LinkedIn ↗</a>
+</div>
+<footer style="padding: 56px 0 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8F8F8F">Abdullah Al-Hadeethi · 2026</footer>
+</section>
+</div>
+
+<div id="modal"></div>
+</div>
+
+<script>
+(function () {
+const ACCENT = '#FFD23F';
+    const PROJECTS = [
+      { id: 'induction', ref: 'P1', cat: 'power', sym: 'coil', title: 'Induction cooktop inverter', status: 'done, going to market', kind: 'done', when: '2026',
+        blurb: 'A soft-switched IGBT resonant inverter for an induction cooktop. I measured its switching and conduction losses from scope waveforms. The design is finished and on track to be sold.',
+        tagLine: 'Power electronics · ZVS · IGBT · Tektronix MSO',
+        points: ['Set up a V x I math channel on a Tektronix MSO to read losses straight off the waveforms', 'Characterized it at 18 kHz, 400 V DC bus and 500 ns dead time', 'Measured 14.9 A peak tank current at that operating point'],
+        specs: [{ k: 'f_sw', v: '18 kHz' }, { k: 'DC bus', v: '400 V' }, { k: 'Dead time', v: '500 ns' }, { k: 'Tank peak', v: '14.9 A' }, { k: 'C_oss', v: '42 pF' }],
+        figure: 'Scope captures coming soon.' },
+      { id: 'ringosc', ref: 'A2', cat: 'analog', sym: 'ring', title: '75 MHz ring oscillator and output buffer', status: 'done', kind: 'done', when: 'ECE 4901 · Oct 2026',
+        blurb: 'A five-stage ring oscillator and a tapered buffer that drives a 10 pF load, taken from schematic through layout, LVS and parasitic extraction in Cadence. Class project with my lab partner Asher Bell.',
+        tagLine: 'Cadence Virtuoso · Spectre · Calibre · TSMC 0.18 µm',
+        points: [
+          'Tuned the ring with channel length. L = 1.9 µm put it at 76.54 MHz, inside the 75 MHz ±10% spec.',
+          'Picked the number of stages from a simulated single-inverter delay of 2.598 ns. That predicted 77.0 MHz, within 0.6% of the full simulation.',
+          'Drew the layouts by hand. Calibre LVS came back clean, and the only DRC flags left were density checks.',
+          'After parasitic extraction the ring dropped to 62.76 MHz (18% slower) because of wiring capacitance. A shorter L or wider devices would bring it back.',
+          'Designed a 3-stage tapered buffer (taper factor 5). Delay was 0.55 ns before layout and 0.60 ns after, against a 2.5 ns limit.',
+          'On its own the ring only swings about 50 mV into 10 pF. With the buffer the load goes rail to rail at 65.3 MHz on 2.36 mW.'
+        ],
+        specs: [{ k: 'Stages', v: '5' }, { k: 'Ring devices', v: 'P 530n / N 270n, L 1.9µ' }, { k: 'f, schematic', v: '76.54 MHz' }, { k: 'f, post-PEX', v: '62.76 MHz' }, { k: 'Buffer delay', v: '0.55 / 0.60 ns' }, { k: 'Load', v: '10 pF' }, { k: 'Power', v: '2.36 mW' }, { k: 'Supply', v: '1.8 V' }],
+        figs: [
+          { src: 'images/ring-osc-layout.png', cap: 'Ring oscillator layout. Five inverters between the VDD and GND rails, feedback in metal 2 across the middle.', bg: '#FFFFFF' },
+          { src: 'images/ring-osc-postpex.png', cap: 'Output after parasitic extraction. Still rail to rail, period up to 15.93 ns.', bg: '#000000' }
+        ],
+        figure: '' },
+      { id: 'uart', ref: 'U1', cat: 'digital', sym: 'uart', title: 'UART transceiver with FIFOs', status: 'RTL done, FPGA next', kind: 'soon', when: 'Oct 2026',
+        blurb: 'An 8N1 UART in SystemVerilog with a 16-byte FIFO on each side. It passes all of my simulation tests. Next step is running it on an FPGA board.',
+        tagLine: 'SystemVerilog · Icarus Verilog · GTKWave',
+        points: [
+          'Baud generator that makes a 16x oversampling tick. Clock, baud rate and FIFO depth are all parameters.',
+          'Receiver with a two-flop synchronizer, a half-bit check on the start bit to ignore glitches, and sampling in the middle of each bit.',
+          'First-word-fall-through FIFOs on TX and RX, with an extra pointer bit to tell full from empty.',
+          'If the stop bit is wrong, the byte is dropped and the receiver waits for the line to go idle again. If the RX FIFO is full, it raises an overflow flag without touching the stored bytes.',
+          'Self-checking testbench with 4 tests, all passing: 64 random bytes in loopback, sender clock 3% fast and slow, a framing error, and RX overflow.'
+        ],
+        specs: [{ k: 'Format', v: '8N1, LSB first' }, { k: 'Baud', v: '115200' }, { k: 'Clock', v: '100 MHz' }, { k: 'Oversampling', v: '16x' }, { k: 'FIFOs', v: '2 x 16 bytes' }, { k: 'Tests', v: '4 / 4 pass' }],
+        figs: [
+          { src: 'images/uart-waveform.png', cap: 'TX line in loopback simulation, two frames back to back.', bg: '#0A0F16' },
+          { src: 'images/uart-tests.png', cap: 'Testbench output.', bg: '#0A0F16' }
+        ],
+        figure: '' },
+      { id: 'llc', ref: 'P2', cat: 'power', sym: 'line', title: 'GaN LLC converter, 400 V to 12 V', status: 'schematic in progress', kind: 'wip', when: 'Oct 2026 – now',
+        blurb: 'An isolated DC-DC converter that steps a 400 V bus down to 12 V, like the one in an EV that runs the 12 V system. GaN switches and a resonant LLC tank let it soft-switch at hundreds of kHz. I\'m designing the board in KiCad right now.',
+        tagLine: 'KiCad · GaN · LLC · isolated DC-DC',
+        points: [
+          'Split the converter into 12 blocks, from the HV input to the 12 V output, and I\'m designing them one at a time.',
+          'Finished the HV input stage schematic: fuse, NTC inrush limiter, reverse-polarity diode, TVS clamp, a damped differential-mode filter, common-mode choke and Y-caps, bulk capacitor with a bleeder, and a filtered divider to sense the bus voltage.',
+          'Picked an integrated-driver 650 V GaN half-bridge for the power stage, to keep the gate loop tight.',
+          'Kept the input DC-only for the first revision. AC input with PFC can come in a Rev B.',
+          'Next up: the resonant tank and transformer, then synchronous rectification on the 12 V side.'
+        ],
+        specs: [{ k: 'Input', v: '400 V DC' }, { k: 'Output', v: '12 V' }, { k: 'Target power', v: '~500 W' }, { k: 'Switching', v: '300 kHz – 1 MHz' }, { k: 'Topology', v: 'Isolated LLC' }, { k: 'Switches', v: '650 V GaN' }],
+        figure: 'Schematic screenshots coming soon.' },
+      { id: 'miller', ref: 'A1', cat: 'analog', sym: 'opamp', title: 'Two-stage Miller op-amp', status: 'in progress', kind: 'wip', when: '2026',
+        blurb: 'A two-stage, Miller-compensated CMOS op-amp designed in Cadence Virtuoso on a TSMC 0.18 µm library.',
+        tagLine: 'Cadence Virtuoso · TSMC 0.18 µm',
+        points: ['Schematic and simulation in Cadence Virtuoso', 'Uses the 1.8 V core devices from the tsmc18 library'],
+        specs: [{ k: 'Tool', v: 'Virtuoso' }, { k: 'Process', v: 'TSMC 0.18 µm' }, { k: 'Supply', v: '1.8 V' }],
+        figure: 'Simulation results coming soon.' },
+      { id: 'accel', ref: 'U2', cat: 'digital', sym: 'accel', title: '4x4 dataflow accelerator', status: 'planned', kind: 'plan', when: '2026–27',
+        blurb: 'A 4x4 grid of small processing elements that pass data straight to their neighbors. The plan is to write the RTL, verify it, run it through OpenLane on Sky130, and demo it on an FPGA.',
+        tagLine: 'RTL · OpenLane · Sky130 · FPGA',
+        points: ['RTL for the 4x4 array of processing elements', 'A testbench to verify it', 'Physical design with OpenLane on the Sky130 PDK', 'A demo running on an FPGA'],
+        specs: [{ k: 'Array', v: '4 x 4 PEs' }, { k: 'Flow', v: 'OpenLane' }, { k: 'PDK', v: 'Sky130' }],
+        figure: 'Nothing to show yet. Block diagram coming once the RTL is started.' }
+    ];
+    const CAT_LABELS = { digital: 'Digital IC', analog: 'Analog IC', power: 'Analog & PCB' };
+    const STATUS_COLORS = { wip: '#FFD23F', plan: '#8F8F8F', work: '#EDEDED', done: '#3BD16F', soon: '#FFD23F' };
+
+function hexRgb(h) {
+    const s = String(h || '').replace('#', '');
+    const f = s.length === 3 ? s.split('').map((c) => c + c).join('') : s;
+    const n = parseInt(f, 16);
+    if (f.length !== 6 || isNaN(n)) return [255, 210, 63];
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  }
+
+
+let CV = document.getElementById('fx-bg');
+let CC = document.getElementById('fx-cursor');
+let RAF = 0;
+function startFx() {
+    const fx = { nodes: [], edges: [], adj: [], pulses: [], sparks: [], rings: [], mouse: { x: -9999, y: -9999, on: false }, ring: 12, spin: 0, down: false, trail: [], crack: [], hover: false, arc: null, frame: 0, w: 0, h: 0, dpr: 1, base: null, baseKey: '' };
+    
+    let reduce = false;
+    try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    fx.reduce = reduce;
+    const rnd = (a, b) => a + Math.random() * (b - a);
+    const WHITE = [255, 255, 255];
+    const TRACE = [120, 120, 112];
+    const rgba = (c, a) => 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + a + ')';
+
+    const pointAt = (e, dir, d) => {
+      const s = dir === 1 ? d : e.len - d;
+      const p = e.pts;
+      if (s <= e.l1 || e.len - e.l1 < 0.001) {
+        const t = e.l1 > 0 ? Math.max(0, Math.min(1, s / e.l1)) : 1;
+        return { x: p[0].x + (p[1].x - p[0].x) * t, y: p[0].y + (p[1].y - p[0].y) * t };
+      }
+      const t = Math.max(0, Math.min(1, (s - e.l1) / (e.len - e.l1)));
+      return { x: p[1].x + (p[2].x - p[1].x) * t, y: p[1].y + (p[2].y - p[1].y) * t };
+    };
+
+    const spawn = (node, fast) => {
+      if (!fx.edges.length) return;
+      let ei, dir, d = 0;
+      if (node >= 0 && fx.adj[node] && fx.adj[node].length) {
+        ei = fx.adj[node][Math.floor(Math.random() * fx.adj[node].length)];
+        dir = fx.edges[ei].a === node ? 1 : -1;
+      } else {
+        ei = Math.floor(Math.random() * fx.edges.length);
+        dir = Math.random() < 0.5 ? 1 : -1;
+        d = Math.random() * fx.edges[ei].len;
+      }
+      fx.pulses.push({ e: ei, dir: dir, d: d, sp: fast ? rnd(3.2, 4.6) : rnd(0.6, 1.4), hot: fast ? Math.random() < 0.5 : Math.random() < 0.15, life: fast ? 7 : Infinity });
+    };
+
+    const build = () => {
+      const c = CV;
+      if (!c || !c.getContext) return false;
+      const w = window.innerWidth || 1280, h = window.innerHeight || 800;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      c.width = Math.round(w * dpr); c.height = Math.round(h * dpr);
+      fx.w = w; fx.h = h; fx.dpr = dpr;
+      if (CC) { CC.width = c.width; CC.height = c.height; }
+      const S = 96, cols = Math.ceil(w / S) + 2, rows = Math.ceil(h / S) + 2;
+      const nodes = [], grid = [];
+      for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) {
+        grid[j * cols + i] = nodes.length;
+        nodes.push({ x: Math.round(((i - 0.5) * S + rnd(-18, 18)) / 12) * 12, y: Math.round(((j - 0.5) * S + rnd(-18, 18)) / 12) * 12, g: 0, deg: 0 });
+      }
+      const edges = [], adj = nodes.map(() => []);
+      const add = (a, b, horiz) => {
+        const A = nodes[a], B = nodes[b];
+        const C = horiz ? { x: B.x, y: A.y } : { x: A.x, y: B.y };
+        const l1 = Math.hypot(C.x - A.x, C.y - A.y), l2 = Math.hypot(B.x - C.x, B.y - C.y);
+        const ei = edges.length;
+        edges.push({ a: a, b: b, pts: [A, C, B], l1: l1, len: l1 + l2 });
+        adj[a].push(ei); adj[b].push(ei); A.deg++; B.deg++;
+      };
+      for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) {
+        const a = grid[j * cols + i];
+        if (i < cols - 1 && Math.random() < 0.42) add(a, grid[j * cols + i + 1], true);
+        if (j < rows - 1 && Math.random() < 0.34) add(a, grid[(j + 1) * cols + i], false);
+      }
+      fx.nodes = nodes; fx.edges = edges; fx.adj = adj;
+      const b = document.createElement('canvas');
+      b.width = c.width; b.height = c.height;
+      fx.base = b; fx.baseKey = '';
+      fx.pulses = [];
+      const n = Math.max(10, Math.round((w * h) / 52000));
+      for (let k = 0; k < n; k++) spawn(-1, false);
+      return true;
+    };
+
+    const drawBase = () => {
+      const b = fx.base, bx = b.getContext('2d');
+      bx.setTransform(1, 0, 0, 1, 0, 0);
+      bx.clearRect(0, 0, b.width, b.height);
+      bx.setTransform(fx.dpr, 0, 0, fx.dpr, 0, 0);
+      bx.lineWidth = 1;
+      bx.strokeStyle = rgba(TRACE, 0.16);
+      bx.beginPath();
+      for (const e of fx.edges) { bx.moveTo(e.pts[0].x, e.pts[0].y); bx.lineTo(e.pts[1].x, e.pts[1].y); bx.lineTo(e.pts[2].x, e.pts[2].y); }
+      bx.stroke();
+      for (const nd of fx.nodes) {
+        if (nd.deg >= 3) { bx.fillStyle = rgba(TRACE, 0.4); bx.beginPath(); bx.arc(nd.x, nd.y, 2.4, 0, Math.PI * 2); bx.fill(); }
+        else if (nd.deg === 1) { bx.strokeStyle = rgba([230, 80, 70], 0.35); bx.strokeRect(nd.x - 2.5, nd.y - 2.5, 5, 5); }
+      }
+    };
+
+    const nearest = (x, y, R) => {
+      let best = -1, bd = R * R;
+      for (let i = 0; i < fx.nodes.length; i++) {
+        const nd = fx.nodes[i]; if (!nd.deg) continue;
+        const dx = nd.x - x, dy = nd.y - y, d = dx * dx + dy * dy;
+        if (d < bd) { bd = d; best = i; }
+      }
+      return best;
+    };
+
+    const makeArc = (x0, y0, x1, y1) => {
+      const pts = [], segs = 8, dx = x1 - x0, dy = y1 - y0, L = Math.hypot(dx, dy) || 1;
+      const nx = -dy / L, ny = dx / L;
+      for (let i = 0; i <= segs; i++) {
+        const t = i / segs, off = (i === 0 || i === segs) ? 0 : rnd(-1, 1) * L * 0.12;
+        pts.push({ x: x0 + dx * t + nx * off, y: y0 + dy * t + ny * off });
+      }
+      return pts;
+    };
+
+    const tick = () => {
+      RAF = requestAnimationFrame(tick);
+      if (!fx.base && !build()) return;
+      const c = CV; if (!c) return;
+      const ctx = c.getContext('2d');
+      const ac = hexRgb(ACCENT);
+      if (!fx.baseKey) { drawBase(); fx.baseKey = 'x'; }
+      const calm = fx.reduce || false;
+      fx.frame++;
+
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.clearRect(0, 0, c.width, c.height);
+      ctx.drawImage(fx.base, 0, 0);
+      ctx.setTransform(fx.dpr, 0, 0, fx.dpr, 0, 0);
+      ctx.globalCompositeOperation = 'lighter';
+      ctx.lineCap = 'round';
+
+      if (!calm) {
+        for (let i = fx.pulses.length - 1; i >= 0; i--) {
+          const p = fx.pulses[i];
+          let e = fx.edges[p.e];
+          p.d += p.sp;
+          let dead = false;
+          while (p.d >= e.len) {
+            const node = p.dir === 1 ? e.b : e.a;
+            fx.nodes[node].g = Math.min(1, fx.nodes[node].g + 0.6);
+            if (p.life !== Infinity && --p.life <= 0) { dead = true; break; }
+            let opts = fx.adj[node].filter((x) => x !== p.e);
+            if (!opts.length) opts = fx.adj[node];
+            const ne = opts[Math.floor(Math.random() * opts.length)];
+            p.d -= e.len; p.e = ne; e = fx.edges[ne];
+            p.dir = e.a === node ? 1 : -1;
+          }
+          if (dead) { fx.pulses.splice(i, 1); continue; }
+          const col = p.hot ? WHITE : ac;
+          const step = p.life === Infinity ? 5 : 7;
+          ctx.strokeStyle = rgba(col, 0.5);
+          ctx.lineWidth = 1.4;
+          ctx.beginPath();
+          for (let k = 0; k <= 8; k++) {
+            const q = pointAt(e, p.dir, Math.max(0, p.d - k * step));
+            if (k === 0) ctx.moveTo(q.x, q.y); else ctx.lineTo(q.x, q.y);
+          }
+          ctx.stroke();
+          const h = pointAt(e, p.dir, p.d);
+          ctx.fillStyle = 'rgba(255,255,255,0.85)';
+          ctx.beginPath(); ctx.arc(h.x, h.y, 1.6, 0, Math.PI * 2); ctx.fill();
+        }
+      }
+
+      for (const nd of fx.nodes) {
+        if (nd.g < 0.02) continue;
+        ctx.fillStyle = rgba(ac, nd.g * 0.3);
+        ctx.beginPath(); ctx.arc(nd.x, nd.y, 2 + nd.g * 4, 0, Math.PI * 2); ctx.fill();
+        nd.g *= 0.92;
+      }
+
+      const m = fx.mouse;
+      if (m.on && !fx.reduce) {
+        const ni = nearest(m.x, m.y, 150);
+        if (ni >= 0) {
+          const nd = fx.nodes[ni];
+          if (!fx.arc || fx.arcNode !== ni || fx.frame % 3 === 0) { fx.arc = makeArc(m.x, m.y, nd.x, nd.y); fx.arcNode = ni; }
+          ctx.strokeStyle = rgba(ac, 0.25); ctx.lineWidth = 3;
+          ctx.beginPath(); fx.arc.forEach((q, k) => k ? ctx.lineTo(q.x, q.y) : ctx.moveTo(q.x, q.y)); ctx.stroke();
+          ctx.strokeStyle = 'rgba(255,255,255,0.8)'; ctx.lineWidth = 1;
+          ctx.beginPath(); fx.arc.forEach((q, k) => k ? ctx.lineTo(q.x, q.y) : ctx.moveTo(q.x, q.y)); ctx.stroke();
+          nd.g = 1;
+          if (!calm && Math.random() < 0.02) spawn(ni, true);
+        } else { fx.arc = null; }
+      }
+      ctx.globalCompositeOperation = 'source-over';
+
+      const cc = CC;
+      if (!cc) return;
+      if (cc.width !== c.width || cc.height !== c.height) { cc.width = c.width; cc.height = c.height; }
+      const k = cc.getContext('2d');
+      k.setTransform(1, 0, 0, 1, 0, 0);
+      k.clearRect(0, 0, cc.width, cc.height);
+      k.setTransform(fx.dpr, 0, 0, fx.dpr, 0, 0);
+      k.globalCompositeOperation = 'lighter';
+      k.lineCap = 'round';
+      for (let i = fx.rings.length - 1; i >= 0; i--) {
+        const r = fx.rings[i];
+        r.r += 4.5; r.life -= 0.045;
+        if (r.life <= 0) { fx.rings.splice(i, 1); continue; }
+        k.strokeStyle = rgba(ac, r.life * 0.6); k.lineWidth = 1.4;
+        k.beginPath(); k.arc(r.x, r.y, r.r, 0, Math.PI * 2); k.stroke();
+      }
+      for (let i = fx.sparks.length - 1; i >= 0; i--) {
+        const s = fx.sparks[i];
+        s.x += s.vx; s.y += s.vy; s.vy += 0.15; s.vx *= 0.97; s.life -= 0.03;
+        if (s.life <= 0) { fx.sparks.splice(i, 1); continue; }
+        k.strokeStyle = rgba(s.hot ? ac : WHITE, s.life);
+        k.lineWidth = 1.4;
+        k.beginPath(); k.moveTo(s.x, s.y); k.lineTo(s.x - s.vx * 2.4, s.y - s.vy * 2.4); k.stroke();
+      }
+      if (m.on) {
+        fx.trail.push({ x: m.x, y: m.y });
+        if (fx.trail.length > 12) fx.trail.shift();
+        for (let i = 1; i < fx.trail.length; i++) {
+          const a = fx.trail[i - 1], b = fx.trail[i], t = i / fx.trail.length;
+          k.strokeStyle = rgba(ac, t * 0.45); k.lineWidth = t * 2.4;
+          k.beginPath(); k.moveTo(a.x, a.y); k.lineTo(b.x, b.y); k.stroke();
+        }
+        const target = fx.down ? 6 : (fx.hover ? 20 : 12);
+        fx.ring += (target - fx.ring) * 0.22;
+        fx.spin += fx.reduce ? 0 : (fx.hover ? 0.09 : 0.04);
+        k.strokeStyle = rgba(fx.hover ? ac : WHITE, 0.9); k.lineWidth = 1.6;
+        for (let s = 0; s < 3; s++) {
+          const a0 = fx.spin + s * Math.PI * 2 / 3;
+          k.beginPath(); k.arc(m.x, m.y, fx.ring, a0, a0 + Math.PI * 0.42); k.stroke();
+        }
+        if (!fx.reduce) {
+          if (fx.frame % 3 === 0) {
+            fx.crack = [];
+            const n = fx.hover ? 3 : 1;
+            for (let q = 0; q < n; q++) {
+              const ang = Math.random() * Math.PI * 2, r0 = fx.ring + 1, r1 = fx.ring + rnd(5, fx.hover ? 14 : 9);
+              const pts = [];
+              for (let z = 0; z <= 3; z++) {
+                const rr = r0 + (r1 - r0) * z / 3, aj = ang + (z === 0 ? 0 : rnd(-0.18, 0.18));
+                pts.push({ dx: Math.cos(aj) * rr, dy: Math.sin(aj) * rr });
+              }
+              fx.crack.push(pts);
+            }
+          }
+          k.strokeStyle = rgba(ac, 0.9); k.lineWidth = 1;
+          for (const pts of fx.crack) {
+            k.beginPath();
+            pts.forEach((q, z) => z ? k.lineTo(m.x + q.dx, m.y + q.dy) : k.moveTo(m.x + q.dx, m.y + q.dy));
+            k.stroke();
+          }
+        }
+        k.fillStyle = '#FFFFFF';
+        k.beginPath(); k.arc(m.x, m.y, 2.2, 0, Math.PI * 2); k.fill();
+      } else {
+        fx.trail = [];
+      }
+      k.globalCompositeOperation = 'source-over';
+    };
+
+    const onMove = (e) => {
+      fx.mouse.x = e.clientX; fx.mouse.y = e.clientY; fx.mouse.on = true;
+      const t = e.target;
+      fx.hover = !!(t && t.closest && t.closest('button, a'));
+    };
+    const onOut = (e) => { if (!e.relatedTarget) fx.mouse.on = false; };
+    const onUp = () => { fx.down = false; };
+    const onDown = (e) => {
+      fx.down = true;
+      if (fx.reduce) return;
+      const x = e.clientX, y = e.clientY;
+      fx.rings.push({ x: x, y: y, r: 5, life: 1 });
+      for (let k = 0; k < 16; k++) {
+        const a = Math.random() * Math.PI * 2, sp = rnd(2, 6);
+        fx.sparks.push({ x: x, y: y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp - 1.5, life: rnd(0.6, 1), hot: Math.random() < 0.5 });
+      }
+      const ni = nearest(x, y, 240);
+      if (ni >= 0) { fx.nodes[ni].g = 1; for (let k = 0; k < 4; k++) spawn(ni, true); }
+    };
+    let rt = null;
+    const onResize = () => { clearTimeout(rt); rt = setTimeout(() => { fx.base = null; }, 150); };
+
+    window.addEventListener('mousemove', onMove, { passive: true });
+    document.addEventListener('mouseout', onOut);
+    window.addEventListener('pointerdown', onDown, { passive: true });
+    window.addEventListener('resize', onResize);
+    window.addEventListener('pointerup', onUp, { passive: true });
+    window.__fxOff = () => {
+      window.removeEventListener('pointerup', onUp);
+      window.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseout', onOut);
+      window.removeEventListener('pointerdown', onDown);
+      window.removeEventListener('resize', onResize);
+      clearTimeout(rt);
+    };
+    tick();
+  }
+
+// ---------------- projects: tabs, cards, modal ----------------
+const ALL = PROJECTS.map((p) => Object.assign({}, p, {
+  catLabel: CAT_LABELS[p.cat],
+  statusColor: STATUS_COLORS[p.kind],
+  figs: p.figs || [],
+  hasFigs: !!(p.figs && p.figs.length),
+  noFigs: !(p.figs && p.figs.length),
+  hasSpecs: !!(p.specs && p.specs.length),
+  symUart: p.sym === 'uart', symAccel: p.sym === 'accel', symOpamp: p.sym === 'opamp',
+  symRing: p.sym === 'ring', symCoil: p.sym === 'coil', symLine: p.sym === 'line'
+}));
+const TABS = [{ id: 'all', label: 'All' }, { id: 'digital', label: 'Digital IC' }, { id: 'analog', label: 'Analog IC' }, { id: 'power', label: 'Analog &amp; PCB' }];
+let tab = 'all', openId = null, lastFocus = null;
+
+function renderTabs() {
+  document.getElementById('tabs').innerHTML = TABS.map((t0) => {
+    const on = t0.id === tab;
+    const t = { id: t0.id, label: t0.label, cls: on ? 'tab on' : 'tab', pressed: String(on), count: t0.id === 'all' ? ALL.length : ALL.filter((p) => p.cat === t0.id).length };
+    return `
+<button type="button" class="${t.cls}" aria-pressed="${t.pressed}" data-tab="${t.id}" style="min-height: 44px; padding: 10px 12px; margin-bottom: -1px; border: 0; border-bottom: 2px solid transparent; background: transparent; color: #8F8F8F; font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; font-weight: 500; cursor: pointer">${t.label} <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6B6B6B">${t.count}</span></button>
+`;
+  }).join('');
+}
+function renderCards() {
+  const list = ALL.filter((p) => tab === 'all' || p.cat === tab);
+  document.getElementById('cards').innerHTML = list.map((p) => `
+<button type="button" class="card" data-id="${p.id}" aria-haspopup="dialog" data-act="open" style="display: flex; flex-direction: column; gap: 12px; text-align: left; padding: 20px; min-height: 270px; border-radius: 4px; border: 1px solid #2A2A2A; background: #0D0D0D; color: #EDEDED; font: inherit; cursor: pointer">
+<span style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; width: 100%">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8F8F8F">${p.ref} · ${p.catLabel}</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: ${p.statusColor}; text-align: right">${p.status}</span>
+</span>
+<span class="sym" aria-hidden="true" style="display: block; height: 64px">
+${(p.symUart) ? `<svg width="150" height="64" viewBox="0 0 150 64" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="16" width="36" height="32"></rect><rect x="112" y="16" width="36" height="32"></rect><path class="w" d="M38 32 H52 V20 H58 V44 H66 V20 H72 V44 H86 V20 H92 V32 H112"></path><text x="11" y="36" font-size="10" fill="currentColor" stroke="none" font-family="IBM Plex Mono, monospace">TX</text><text x="121" y="36" font-size="10" fill="currentColor" stroke="none" font-family="IBM Plex Mono, monospace">RX</text></svg>` : ''}
+${(p.symAccel) ? `<svg width="150" height="64" viewBox="0 0 150 64" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="2" width="12" height="12"></rect><rect x="30" y="2" width="12" height="12"></rect><rect x="56" y="2" width="12" height="12"></rect><rect x="82" y="2" width="12" height="12"></rect><rect x="4" y="18" width="12" height="12"></rect><rect x="30" y="18" width="12" height="12"></rect><rect x="56" y="18" width="12" height="12"></rect><rect x="82" y="18" width="12" height="12"></rect><rect x="4" y="34" width="12" height="12"></rect><rect x="30" y="34" width="12" height="12"></rect><rect x="56" y="34" width="12" height="12"></rect><rect x="82" y="34" width="12" height="12"></rect><rect x="4" y="50" width="12" height="12"></rect><rect x="30" y="50" width="12" height="12"></rect><rect x="56" y="50" width="12" height="12"></rect><rect x="82" y="50" width="12" height="12"></rect><path class="w" d="M16 8 H30 M42 8 H56 M68 8 H82 M16 24 H30 M42 24 H56 M68 24 H82 M16 40 H30 M42 40 H56 M68 40 H82 M16 56 H30 M42 56 H56 M68 56 H82 M94 32 H140"></path></svg>` : ''}
+${(p.symOpamp) ? `<svg width="150" height="64" viewBox="0 0 150 64" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M40 4 L40 60 L92 32 Z"></path><path class="w" d="M2 18 H40 M2 46 H40 M92 32 H148"></path><text x="44" y="22" font-size="12" fill="currentColor" stroke="none" font-family="IBM Plex Mono, monospace">−</text><text x="44" y="50" font-size="12" fill="currentColor" stroke="none" font-family="IBM Plex Mono, monospace">+</text></svg>` : ''}
+${(p.symRing) ? `<svg width="150" height="64" viewBox="0 0 150 64" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8 L18 32 L38 20 Z"></path><circle cx="41" cy="20" r="3"></circle><path d="M62 8 L62 32 L82 20 Z"></path><circle cx="85" cy="20" r="3"></circle><path d="M106 8 L106 32 L126 20 Z"></path><circle cx="129" cy="20" r="3"></circle><path class="w" d="M44 20 H62 M88 20 H106 M132 20 H142 V54 H6 V20 H18"></path></svg>` : ''}
+${(p.symCoil) ? `<svg width="150" height="64" viewBox="0 0 150 64" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M30 32 a8 8 0 0 1 16 0 a8 8 0 0 1 16 0 a8 8 0 0 1 16 0 a8 8 0 0 1 16 0"></path><path d="M112 20 V44 M118 20 V44"></path><path class="w" d="M2 32 H30 M94 32 H112 M118 32 H148"></path></svg>` : ''}
+${(p.symLine) ? `<svg width="150" height="64" viewBox="0 0 150 64" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M52 8 a6 6 0 0 1 0 12 a6 6 0 0 1 0 12 a6 6 0 0 1 0 12 a6 6 0 0 1 0 12"></path><path d="M68 6 V58 M72 6 V58"></path><path d="M88 8 a6 6 0 0 0 0 12 a6 6 0 0 0 0 12 a6 6 0 0 0 0 12 a6 6 0 0 0 0 12"></path><path class="w" d="M2 8 H52 M2 56 H52 M88 8 H148 M88 56 H148"></path><text x="4" y="36" font-size="10" fill="currentColor" stroke="none" font-family="IBM Plex Mono, monospace">400V</text><text x="116" y="36" font-size="10" fill="currentColor" stroke="none" font-family="IBM Plex Mono, monospace">12V</text></svg>` : ''}
+</span>
+<span style="display: block; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 26px; line-height: 1.05; text-transform: uppercase">${p.title}</span>
+<span style="display: block; color: #B5B5B5; font-size: 15px; line-height: 1.55; flex-grow: 1">${p.blurb}</span>
+<span style="display: flex; align-items: center; justify-content: space-between; width: 100%; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8F8F8F">
+<span>${p.tagLine}</span>
+<span class="more" style="white-space: nowrap">details →</span>
+</span>
+</button>
+`).join('');
+}
+function renderModal() {
+  const host = document.getElementById('modal');
+  const idx = ALL.findIndex((p) => p.id === openId);
+  if (idx < 0) { host.innerHTML = ''; document.body.style.overflow = ''; return; }
+  const n = ALL.length, sel = ALL[idx], prevP = ALL[(idx - 1 + n) % n], nextP = ALL[(idx + 1) % n];
+  const prevTitle = prevP.title, nextTitle = nextP.title;
+  host.innerHTML = `
+<div style="position: fixed; inset: 0; z-index: 20; display: flex; align-items: center; justify-content: center; padding: 20px">
+<button type="button" class="scrim" aria-label="Close project" data-act="close" style="position: absolute; inset: 0; border: 0; padding: 0; background: rgba(0,0,0,0.8); cursor: pointer"></button>
+<div class="panel" role="dialog" aria-modal="true" aria-labelledby="pm-title" style="position: relative; z-index: 1; width: 100%; max-width: 860px; max-height: calc(100vh - 40px); overflow-y: auto; border-radius: 4px; border: 1px solid #3A3A3A; background: #0B0B0B">
+<div style="padding: clamp(20px, 4vw, 36px); display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8F8F8F">${sel.ref} · ${sel.catLabel} · <span style="color: ${sel.statusColor}">${sel.status}</span> · ${sel.when}</div>
+<h3 id="pm-title" style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(30px, 4.5vw, 44px); line-height: 1; text-transform: uppercase">${sel.title}</h3>
+</div>
+<button type="button" class="iconbtn" aria-label="Close" data-act="close" style="flex-shrink: 0; width: 44px; height: 44px; border-radius: 4px; border: 1px solid #3A3A3A; background: transparent; color: #CFCFCF; display: inline-flex; align-items: center; justify-content: center; cursor: pointer">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+</button>
+</div>
+
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #D4D4D4">${sel.blurb}</p>
+
+${(sel.hasFigs) ? `
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
+${(sel.figs).map((f) => `
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 6px">
+<div style="border: 1px solid #2A2A2A; background: ${f.bg}; display: flex; align-items: center; justify-content: center; height: 220px">
+<img src="${f.src}" alt="${f.cap}" style="width: 100%; height: 100%; object-fit: contain; display: block; background: ${f.bg}">
+</div>
+<figcaption style="font-size: 13px; line-height: 1.5; color: #8F8F8F">${f.cap}</figcaption>
+</figure>
+`).join('')}
+</div>
+` : ''}
+${(sel.noFigs) ? `
+<div style="border: 1px dashed #333; padding: 18px; color: #8F8F8F; font-size: 14px">${sel.figure}</div>
+` : ''}
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 20px; text-transform: uppercase; color: var(--ac)">What I did</div>
+<ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px">
+${(sel.points).map((pt) => `
+<li style="color: #D4D4D4; font-size: 15px; line-height: 1.55">${pt}</li>
+`).join('')}
+</ul>
+</div>
+${(sel.hasSpecs) ? `
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 20px; text-transform: uppercase; color: var(--ac)">Numbers</div>
+<dl style="margin: 0; display: flex; flex-direction: column; border-top: 1px solid #2A2A2A">
+${(sel.specs).map((s) => `
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; border-bottom: 1px solid #2A2A2A; font-size: 14px">
+<dt style="color: #8F8F8F">${s.k}</dt>
+<dd style="margin: 0; color: #EDEDED; text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 13px">${s.v}</dd>
+</div>
+`).join('')}
+</dl>
+<div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8F8F8F; padding-top: 4px">${sel.tagLine}</div>
+</div>
+` : ''}
+</div>
+
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: 12px; border-top: 1px solid #2A2A2A">
+<button type="button" class="navbtn" data-act="prev" style="min-height: 44px; padding: 8px 0; border: 0; border-bottom: 1px solid transparent; background: transparent; color: #A8A8A8; font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; cursor: pointer">← ${prevTitle}</button>
+<button type="button" class="navbtn" data-act="next" style="min-height: 44px; padding: 8px 0; border: 0; border-bottom: 1px solid transparent; background: transparent; color: #A8A8A8; font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; cursor: pointer">${nextTitle} →</button>
+</div>
+</div>
+</div>
+</div>
+`;
+  document.body.style.overflow = 'hidden';
+  const closeBtn = host.querySelector('.iconbtn');
+  if (closeBtn) closeBtn.focus();
+}
+function open(id) { lastFocus = document.activeElement; openId = id; renderModal(); }
+function close() { openId = null; renderModal(); if (lastFocus && lastFocus.focus) lastFocus.focus(); }
+function step(d) {
+  const i = ALL.findIndex((p) => p.id === openId), n = ALL.length;
+  openId = ALL[(i + d + n) % n].id; renderModal();
+}
+document.getElementById('tabs').addEventListener('click', (e) => {
+  const b = e.target.closest('[data-tab]'); if (!b) return;
+  tab = b.getAttribute('data-tab'); renderTabs(); renderCards();
+});
+document.getElementById('cards').addEventListener('click', (e) => {
+  const c = e.target.closest('[data-id]'); if (c) open(c.getAttribute('data-id'));
+});
+document.getElementById('modal').addEventListener('click', (e) => {
+  const a = e.target.closest('[data-act]'); if (!a) return;
+  const act = a.getAttribute('data-act');
+  if (act === 'close') close(); else if (act === 'prev') step(-1); else if (act === 'next') step(1);
+});
+document.addEventListener('keydown', (e) => {
+  if (!openId) return;
+  if (e.key === 'Escape') close();
+  else if (e.key === 'ArrowLeft') step(-1);
+  else if (e.key === 'ArrowRight') step(1);
+});
+
+// ---------------- copy email ----------------
+const EMAIL = 'amfhadeethi@gmail.com';
+let copyT = 0;
+function setLabels(t) { document.querySelectorAll('[data-copy] span').forEach((el) => { el.textContent = t; }); }
+function copied() {
+  setLabels('Copied!');
+  clearTimeout(copyT);
+  copyT = setTimeout(() => setLabels(EMAIL), 1800);
+}
+function fallbackCopy() {
+  try {
+    const ta = document.createElement('textarea');
+    ta.value = EMAIL; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    const ok = document.execCommand('copy'); document.body.removeChild(ta);
+    if (ok) copied(); else window.location.href = 'mailto:' + EMAIL;
+  } catch (e) { window.location.href = 'mailto:' + EMAIL; }
+}
+document.querySelectorAll('[data-copy]').forEach((b) => b.addEventListener('click', () => {
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(EMAIL).then(copied, fallbackCopy);
+    else fallbackCopy();
+  } catch (e) { fallbackCopy(); }
+}));
+
+renderTabs(); renderCards(); startFx();
+})();
+</script>
+</body>
+</html>
